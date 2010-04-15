@@ -256,24 +256,42 @@
      (expectations
        (desc "historyf-history clear")
        (expect t
-         (setq historyf-test-dir (concat default-directory "t/"))
+         (setq historyf-el-parh (expand-file-name (concat default-directory "historyf.el")))
+         t)
+       (expect t
+         (setq historyf-test-dir (expand-file-name (concat default-directory "t/")))
          t)
        (expect nil
          (historyf-clear-history)
          historyf-history)
         (desc "push historyf-history")
        (expect 'emacs-lisp-mode
-          (find-file (concat historyf-test-dir "test.el"))
-          major-mode)
+         (find-file (concat historyf-test-dir "test.el"))
+         major-mode)
+       (expect 1
+          (length historyf-history))
         (expect '(emacs-lisp-mode)
-          (cdaar historyf-history))
+          (cdar (car historyf-history)))
+        (expect historyf-el-parh
+          (cdr (car historyf-history)))
+        (expect nil
+          historyf-forward-temp)
         (expect t
           (find-file (concat historyf-test-dir "test2.el"))
           t)
         (expect 2
           (length historyf-history))
         (expect '(emacs-lisp-mode)
-          (cdr (caar (cdr historyf-history))))
+          (cdar (car historyf-history)))
+        (expect (concat historyf-test-dir "test.el")
+          (cdr (car historyf-history)))
+        (expect t
+          (find-file (concat historyf-test-dir "test3.c"))
+          t)
+        (expect 3
+          (length historyf-history))
+        (expect '(emacs-lisp-mode)
+          (cdar (car historyf-history)))
        )))
 
 (provide 'historyf)
