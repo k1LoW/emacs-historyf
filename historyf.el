@@ -250,5 +250,31 @@
         (intersection active-minor-modes historyf-minor-modes)
       nil)))
 
+;; Tests
+(dont-compile
+   (when (fboundp 'expectations)
+     (expectations
+       (desc "historyf-history clear")
+       (expect t
+         (setq historyf-test-dir (concat default-directory "t/"))
+         t)
+       (expect nil
+         (historyf-clear-history)
+         historyf-history)
+        (desc "push historyf-history")
+       (expect 'emacs-lisp-mode
+          (find-file (concat historyf-test-dir "test.el"))
+          major-mode)
+        (expect '(emacs-lisp-mode)
+          (cdaar historyf-history))
+        (expect t
+          (find-file (concat historyf-test-dir "test2.el"))
+          t)
+        (expect 2
+          (length historyf-history))
+        (expect '(emacs-lisp-mode)
+          (cdr (caar (cdr historyf-history))))
+       )))
+
 (provide 'historyf)
 ;;; historyf.el ends here
