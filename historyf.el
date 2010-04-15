@@ -1,4 +1,4 @@
-;;; historyf.el --- file history like browser
+;;; historyf.el --- file history libraly like browser
 ;; -*- Mode: Emacs-Lisp -*-
 
 ;; Copyright (C) 2010 by 101000code/101000LAB
@@ -17,7 +17,7 @@
 ;; along with this program; if not, write to the Free Software
 ;; Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
 
-;; Version: 0.0.4
+;; Version: 0.0.5
 ;; Author: k1LoW (Kenichirou Oyama), <k1lowxb [at] gmail [dot] com> <k1low [at] 101000lab [dot] org>
 ;; URL: http://code.101000lab.org, http://trac.codecheck.in
 
@@ -60,6 +60,7 @@
 ;;    default = 100
 
 ;;; TODO
+;; Add more testcase
 ;; Fix some bug historyf-forward
 
 ;;; Code:
