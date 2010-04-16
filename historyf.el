@@ -153,7 +153,6 @@
                   (setq temp-hist h)))
             hist))
     (unless (not temp-hist)
-      (setq historyf-mark nil)
       (unless historyf-forward-temp
         (setq historyf-forward-temp (historyf-make-history)))
       (find-file (cdr temp-hist))
@@ -178,7 +177,6 @@
     (if (not mode-list)
         ;; no mode-list
         (unless (not historyf-mark)
-          (setq historyf-mark nil)
           (if history-head
               (find-file (cdar (reverse history-head)))
             (unless (not historyf-forward-temp)
@@ -187,7 +185,6 @@
           (setq historyf-mark (car (reverse history-head))))
       ;; else
       (unless (not historyf-mark)
-        (setq historyf-mark nil)
         (if history-head
             (progn
               (mapc (lambda (h)
