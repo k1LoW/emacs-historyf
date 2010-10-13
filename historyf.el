@@ -88,7 +88,7 @@
   :group 'historyf)
 
 (defcustom historyf-minor-modes
-  '(cake yarm)
+  '(cake yarm li3 titanium)
   "Target minor-mode."
   :type 'list
   :group 'historyf)
