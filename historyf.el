@@ -17,7 +17,7 @@
 ;; along with this program; if not, write to the Free Software
 ;; Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
 
-;; Version: 0.0.7
+;; Version: 0.0.8
 ;; Author: k1LoW (Kenichirou Oyama), <k1lowxb [at] gmail [dot] com> <k1low [at] 101000lab [dot] org>
 ;; URL: http://code.101000lab.org
 
@@ -54,7 +54,7 @@
 ;;    default = (quote (emacs-lisp-mode lisp-interaction-mode c-mode cc-mode c++-mode ...))
 ;;  `historyf-minor-modes'
 ;;    Target minor-mode.
-;;    default = (quote (cake))
+;;    default = (quote (cake cake2 yarm li3 titanium))
 ;;  `historyf-limit'
 ;;    File history limit.
 ;;    default = 100
@@ -88,7 +88,7 @@
   :group 'historyf)
 
 (defcustom historyf-minor-modes
-  '(cake yarm li3 titanium)
+  '(cake cake2 yarm li3 titanium)
   "Target minor-mode."
   :type 'list
   :group 'historyf)
