@@ -142,7 +142,7 @@
 (defun historyf-back (&optional mode-list)
   "Back file history."
   (interactive)
-  (let ((temp-hist))
+  (let ((temp-hist) (hist))
     (ad-disable-advice 'switch-to-buffer 'before 'historyf-switch-to-buffer)
     (ad-activate 'switch-to-buffer)
     (if (not mode-list)
