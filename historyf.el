@@ -19,7 +19,8 @@
 
 ;; Version: 0.0.8
 ;; Author: k1LoW (Kenichirou Oyama), <k1lowxb [at] gmail [dot] com> <k1low [at] 101000lab [dot] org>
-;; URL: http://code.101000lab.org
+;; URL: https://github.com/k1LoW/emacs-historyf
+;; Original-URL: http://code.101000lab.org
 
 ;;; Install
 ;; Put this file into load-path'ed directory, and byte compile it if
