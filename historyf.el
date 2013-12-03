@@ -19,7 +19,8 @@
 
 ;; Version: 0.0.8
 ;; Author: k1LoW (Kenichirou Oyama), <k1lowxb [at] gmail [dot] com> <k1low [at] 101000lab [dot] org>
-;; URL: http://code.101000lab.org
+;; URL: https://github.com/k1LoW/emacs-historyf
+;; Original-URL: http://code.101000lab.org
 
 ;;; Install
 ;; Put this file into load-path'ed directory, and byte compile it if
@@ -137,10 +138,11 @@
   (message (concat "switch to " file))
   (find-file file))
 
+;;;###autoload
 (defun historyf-back (&optional mode-list)
   "Back file history."
   (interactive)
-  (let ((temp-hist))
+  (let ((temp-hist) (hist))
     (ad-disable-advice 'switch-to-buffer 'before 'historyf-switch-to-buffer)
     (ad-activate 'switch-to-buffer)
     (if (not mode-list)
@@ -165,12 +167,14 @@
     (ad-enable-advice 'switch-to-buffer 'before 'historyf-switch-to-buffer)
     (ad-activate 'switch-to-buffer)))
 
+;;;###autoload
 (defun historyf-back-same-mode-history ()
   "Back same mode file history."
   (interactive)
   (let ((active-modes (historyf-active-mode-list)))
     (historyf-back active-modes)))
 
+;;;###autoload
 (defun historyf-forward (&optional mode-list)
   "Forward file history."
   (interactive)
@@ -213,12 +217,14 @@
     (ad-enable-advice 'switch-to-buffer 'before 'historyf-switch-to-buffer)
     (ad-activate 'switch-to-buffer)))
 
+;;;###autoload
 (defun historyf-forward-same-mode-history ()
   "Forward same mode file history."
   (interactive)
   (let ((active-modes (historyf-active-mode-list)))
     (historyf-forward active-modes)))
 
+;;;###autoload
 (defun historyf-clear-history ()
   "Clear file history."
   (interactive)
