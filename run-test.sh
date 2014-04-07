@@ -2,7 +2,7 @@
 if [ -z "$EMACS" ] ; then
     EMACS=emacs
 fi
-OUTPUT=/tmp/.ert-expectations
+OUTPUT=/tmp/.el-expectations
 cask exec $EMACS -q --no-site-file --batch  -L . -l el-expectations -l historyf -f batch-expectations $OUTPUT ./historyf.el
 ret=$?
 cat $OUTPUT
