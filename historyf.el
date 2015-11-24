@@ -65,8 +65,7 @@
 
 ;;; Code:
 
-(eval-when-compile
-  (require 'cl))
+(require 'cl)
 
 (defgroup historyf nil
   "File history like browser"
