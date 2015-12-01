@@ -1,21 +1,13 @@
 language: emacs-lisp
 env:
-  - ENV_EMACS=emacs-23.4-bin
-  - ENV_EMACS=emacs-24.1-bin
-  - ENV_EMACS=emacs-24.2-bin
-  - ENV_EMACS=emacs-24.3-bin
+  - ENV_EMACS=emacs-23.4-travis
+  - ENV_EMACS=emacs-24.1-travis
+  - ENV_EMACS=emacs-24.2-travis
+  - ENV_EMACS=emacs-24.3-travis
 before_install:
   # Emacs
-  - sudo mkdir /usr/local/evm
-  - sudo chown travis:travis /usr/local/evm
-  - curl -fsSkL --max-time 10 --retry 10 --retry-delay 10
-        https://raw.github.com/rejeep/evm/master/go | bash
-  - export PATH="$HOME/.evm/bin:$PATH"
-  # Cask
-  - curl -fsSkL --max-time 10 --retry 10 --retry-delay 10
-        https://raw.github.com/cask/cask/master/go | python
-  - export PATH="$HOME/.cask/bin:$PATH"
-  - evm install $ENV_EMACS --use
+  - curl -fsSkL https://gist.github.com/rejeep/ebcd57c3af83b049833b/raw > x.sh && source ./x.sh
+  - evm install $ENV_EMACS --use --skip
   - cask
 script:
   - emacs --version
